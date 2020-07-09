@@ -1,6 +1,6 @@
-import os
 from flask import Flask
 from flask_graphql import GraphQLView
+import os
 
 from project.views.health import health_blueprint
 from project.schema import schema
@@ -12,7 +12,6 @@ def register_blueprints(app):
 
 def create_app(script_info=None):
     app = Flask(__name__)
-
     app_settings = os.getenv('APP_SETTINGS')
     app.config.from_object(app_settings)
     app.add_url_rule(

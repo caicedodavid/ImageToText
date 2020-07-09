@@ -1,10 +1,16 @@
 from graphene import ObjectType, String, Schema, Field
+from project.model.crnn import CRNN_STN
+from project.image import Image
+
+crnn_model = CRNN_STN()
 
 
 class QueryImage:
     @staticmethod
     def resolve(var, info, **kwargs) -> str:
-        return kwargs.get('url')
+        image = Image(kwargs.get('url'))
+
+        return crnn_model.predict_text(image.get_name())
 
 
 class Query(ObjectType):

@@ -4,6 +4,7 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 RUN apt-get update
+RUN apt-get install -y libglib2.0-0 libsm6 libxext6 libxrender-dev
 
 COPY ./requirements.txt /usr/src/app/requirements.txt
 RUN pip install -r requirements.txt
