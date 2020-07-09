@@ -1,5 +1,7 @@
 ## CRNN API
 
+Creates an API of a CRNN model implementation from https://github.com/kurapan/CRNN
+
 #### Build and run
 ```
 docker build . -t crnn-api:latest 
